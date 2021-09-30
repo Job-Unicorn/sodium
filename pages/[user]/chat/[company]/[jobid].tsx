@@ -1,8 +1,8 @@
+import { getLayout } from '@/components/general/getLayout'
 import React from 'react'
-import ChatBody from '../../../../components/chat/ChatBody'
-import SEO from '../../../../components/general/SEO'
-import { withNearWallet } from '../../../../components/near/withNearWallet'
-import GridWrapper from '../../../../layouts/GridWrapper'
+import ChatBody from '@/components/chat/ChatBody'
+import SEO from '@/components/general/SEO'
+import GridWrapper from '@/layouts/GridWrapper'
 
 const Company = () => {
   return (
@@ -19,6 +19,6 @@ const Company = () => {
   )
 }
 
-const Page = withNearWallet(Company, "NEEDS_AUTHENTICATION")
+const Page = getLayout(Company, "NEEDS_AUTHENTICATION")
 
 export default Page

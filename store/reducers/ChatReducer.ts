@@ -1,6 +1,6 @@
-import { Chat } from "../contexts/ChatContext";
-import { ChatState } from "../state/chat";
-import { ChatActionType } from "../types/Chat";
+import { Chat } from "@/store/contexts/ChatContext"
+import { ChatState } from "@/store/state/chat"
+import { ChatActionType } from "@/store/types/Chat"
 
 export const chatReducer = (
   state: ChatState,
@@ -19,9 +19,9 @@ export const chatReducer = (
           time: new Date(Date.now()),
         },
       ],
-    };
+    }
 
   default:
-    return state;
+    return state
   }
-};
+}

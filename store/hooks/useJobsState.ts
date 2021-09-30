@@ -1,11 +1,9 @@
-import { useReducer } from "react";
-import { JobsContextInterface } from "../contexts/JobsContext";
-import { JobsReducer } from "../reducers/JobsReducer";
-import { JobsInitialState } from "../state/jobs";
-
-  
+import { useReducer } from "react"
+import { JobsContextInterface } from "@/store/contexts/JobsContext"
+import { JobsReducer } from "@/store/reducers/JobsReducer"
+import { JobsInitialState } from "@/store/state/jobs"
 
 export const useJobsState = () : JobsContextInterface => {
-  const [jobsState, jobsDispatch] = useReducer(JobsReducer, JobsInitialState);
-  return { jobsState, jobsDispatch };
+  const [jobsState, jobsDispatch] = useReducer(JobsReducer, JobsInitialState)
+  return { jobsState, jobsDispatch }
 }

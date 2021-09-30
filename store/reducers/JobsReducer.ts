@@ -1,5 +1,5 @@
-import { IJob, IJobs } from "../../interfaces/Job";
-import { JobActionType } from "../types/Jobs";
+import { IJob, IJobs } from "@/interfaces/Job"
+import { JobActionType } from "@/store/types/Jobs"
 
 
 export interface IJobsAction {
@@ -21,13 +21,13 @@ export interface IJobsState {
 export const JobsReducer = ( state : IJobsState, action : IJobsAction ) : IJobsState => {
   switch (action.type) {
   case 'ADD_JOBS':
-    return {...state, jobs : [...state.jobs, ...action.payload.jobs]};
+    return {...state, jobs : [...state.jobs, ...action.payload.jobs]}
   case 'ADD_JOB':
-    return {...state, jobs : [...state.jobs, action.payload.job]};
+    return {...state, jobs : [...state.jobs, action.payload.job]}
   case 'SET_FILTER':
-    return {...state, filter : action.payload.filter};
+    return {...state, filter : action.payload.filter}
 
   default:
-    return state;
+    return state
   }
 }

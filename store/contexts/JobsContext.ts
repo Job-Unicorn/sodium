@@ -1,5 +1,5 @@
 import React from 'react'
-import { IJobsAction, IJobsState } from '../reducers/JobsReducer'
+import { IJobsAction, IJobsState } from '@/store/reducers/JobsReducer'
 
 
 export interface JobsContextInterface {

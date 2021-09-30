@@ -1,18 +1,18 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react'
-import GridWrapper from '../layouts/GridWrapper'
-import { withNearWallet } from '../components/near/withNearWallet'
+import GridWrapper from '@/layouts/GridWrapper'
 import Jobs from '../mock_data/jobs.json'
-import { IJobs } from '../interfaces/Job'
-import { useJobsState } from '../store/hooks/useJobsState'
+import { IJobs } from '@/interfaces/Job'
+import { useJobsState } from '@/store/hooks/useJobsState'
 import dynamic from 'next/dynamic'
 import useInView from 'react-cool-inview'
 import { Box } from '@chakra-ui/layout'
 import { Input } from '@chakra-ui/input'
-import JobsProvider from '../store/providers/JobsProvider'
-import SEO from '../components/general/SEO'
-const Job = dynamic(() => import('../components/jobs/Job'))
-const NoResultsFound = dynamic(() => import('../components/jobs/NoResultsFound'))
+import JobsProvider from '@/store/providers/JobsProvider'
+import SEO from '@/components/general/SEO'
+import { getLayout } from '@/components/general/getLayout'
+const Job = dynamic(() => import('@/components/jobs/Job'))
+const NoResultsFound = dynamic(() => import('@/components/jobs/NoResultsFound'))
 
 
 const JobsPage = () => {
@@ -88,6 +88,6 @@ const JobsPage = () => {
   )
 }
 
-const Page = withNearWallet(JobsPage, "DOES_NOT_NEED_AUTHENTICATION")
+const Page = getLayout(JobsPage, "DOES_NOT_NEED_AUTHENTICATION")
 
 export default Page
