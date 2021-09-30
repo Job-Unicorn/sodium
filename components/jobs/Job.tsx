@@ -4,7 +4,7 @@ import { FaUserTie } from 'react-icons/fa'
 import { IoIosDoneAll } from 'react-icons/io'
 import { AiOutlineRise } from 'react-icons/ai'
 import { ChevronRightIcon } from '@chakra-ui/icons'
-import { IJob } from '../../interfaces/Job'
+import { IJob } from '@/interfaces/Job'
 
 const Job = ({job} : {job : IJob}) => {
 

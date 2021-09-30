@@ -1,4 +1,4 @@
-import { Chat } from "../contexts/ChatContext";
+import { Chat } from "@/store/contexts/ChatContext"
 
 export interface ChatState {
   messages: Chat[];
@@ -19,4 +19,4 @@ export const ChatInitialState: ChatState = {
       time: new Date(Date.now()),
     },
   ],
-};
+}

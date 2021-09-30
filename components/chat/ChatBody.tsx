@@ -1,11 +1,11 @@
 import { Flex, Button, Spacer, Textarea, InputGroup, InputRightElement, } from '@chakra-ui/react'
 import React from 'react'
 import { useContext } from 'react'
-import { ChatContext } from '../../store/contexts/ChatContext'
-import ChatProvider from '../../store/providers/ChatProvider'
-import ChatHeader from './ChatHeader'
-import OtherPersonChat from './OtherPersonChat'
-import PersonalChat from './PersonalChat'
+import { ChatContext } from '@/store/contexts/ChatContext'
+import ChatProvider from '@/store/providers/ChatProvider'
+import ChatHeader from '@/components/chat/ChatHeader'
+import OtherPersonChat from '@/components/chat/OtherPersonChat'
+import PersonalChat from '@/components/chat/PersonalChat'
 import { useForm } from "react-hook-form"
 
 const ChatBody = () => {
