@@ -1,6 +1,6 @@
 import React from 'react'
-import { JobsContext } from '../contexts/JobsContext'
-import { useJobsState } from '../hooks/useJobsState'
+import { JobsContext } from '@/store/contexts/JobsContext'
+import { useJobsState } from '@/store/hooks/useJobsState'
 
 const JobsProvider = ({children}) => {
   return (

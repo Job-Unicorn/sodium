@@ -1,5 +1,5 @@
-import React from "react";
-import { ChatInitialState, ChatState } from "../state/chat";
+import React from "react"
+import { ChatInitialState, ChatState } from "@/store//state/chat"
 
 export interface Chat {
   id: string;
@@ -16,4 +16,4 @@ export interface ChatContextInterface {
 export const ChatContext = React.createContext<ChatContextInterface>({
   chatState: ChatInitialState,
   chatDispatch: () => {},
-});
+})

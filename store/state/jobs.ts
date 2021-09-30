@@ -1,3 +1,3 @@
-import { IJobsState } from "../reducers/JobsReducer";
+import { IJobsState } from "@/store/reducers/JobsReducer"
 
-export const JobsInitialState : IJobsState = { jobs : [], filter : '' };
+export const JobsInitialState : IJobsState = { jobs : [], filter : '' }

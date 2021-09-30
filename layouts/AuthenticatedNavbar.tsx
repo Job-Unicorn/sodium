@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import {
   Link as ChakraLink,
   Box,
@@ -16,10 +16,10 @@ import {
   PopoverContent,
   PopoverHeader,
   PopoverTrigger
-} from "@chakra-ui/react";
-import Link from "next/link";
-import { getWalletConnection, logout } from "../utils/near/init";
-import { Logo } from "../components/general/Logo";
+} from "@chakra-ui/react"
+import Link from "next/link"
+import { Logo } from "@/components/general/Logo"
+import { logout } from "@/utils/authentication/auth.utils"
 
 export const UserPopover = ({ name }) => {
   return (
@@ -56,9 +56,9 @@ export const UserPopover = ({ name }) => {
 }
 
 const AuthenticatedNavBar = (props) => {
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = React.useState(false)
 
-  const toggle = () => setIsOpen(!isOpen);
+  const toggle = () => setIsOpen(!isOpen)
 
   return (
     <NavBarContainer {...props}>
@@ -66,8 +66,8 @@ const AuthenticatedNavBar = (props) => {
       <MenuToggle toggle={toggle} isOpen={isOpen} />
       <MenuLinks isOpen={isOpen} />
     </NavBarContainer>
-  );
-};
+  )
+}
 
 const CloseIcon = () => (
   <svg width="24" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
@@ -77,7 +77,7 @@ const CloseIcon = () => (
       d="M9.00023 7.58599L13.9502 2.63599L15.3642 4.04999L10.4142 8.99999L15.3642 13.95L13.9502 15.364L9.00023 10.414L4.05023 15.364L2.63623 13.95L7.58623 8.99999L2.63623 4.04999L4.05023 2.63599L9.00023 7.58599Z"
     />
   </svg>
-);
+)
 
 const MenuIcon = () => (
   <svg
@@ -89,15 +89,15 @@ const MenuIcon = () => (
     <title>Menu</title>
     <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
   </svg>
-);
+)
 
 const MenuToggle = ({ toggle, isOpen }) => {
   return (
     <Box display={{ base: "block", md: "none" }} onClick={toggle} >
       {isOpen ? <CloseIcon /> : <MenuIcon />}
     </Box >
-  );
-};
+  )
+}
 
 const MenuItem = ({ children, link, ...rest }) => {
   return (
@@ -109,8 +109,8 @@ const MenuItem = ({ children, link, ...rest }) => {
         </Text>
       </Link>
     </ChakraLink>
-  );
-};
+  )
+}
 
 const MenuLinks = ({ isOpen }) => {
 
@@ -134,15 +134,15 @@ const MenuLinks = ({ isOpen }) => {
         
         <>
 
-          <UserPopover name={getWalletConnection().getAccountId()} />
+          <UserPopover name={"someone"} />
         </>
      
 
 
       </Stack>
     </Box>
-  );
-};
+  )
+}
 
 const NavBarContainer = ({ children, ...props }) => {
   return (
@@ -176,7 +176,7 @@ const NavBarContainer = ({ children, ...props }) => {
       </GridItem>
       <GridItem colSpan={[0, 1]} />
     </Grid>
-  );
-};
+  )
+}
 
-export default AuthenticatedNavBar;
+export default AuthenticatedNavBar

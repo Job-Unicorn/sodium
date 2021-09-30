@@ -1,6 +1,6 @@
 import React from 'react'
-import { ChatContext } from '../contexts/ChatContext'
-import { useChatState } from '../hooks/useChatState'
+import { ChatContext } from '@/store/contexts/ChatContext'
+import { useChatState } from '@/store/hooks/useChatState'
 
 const ChatProvider = ({ children }) => {
   return (

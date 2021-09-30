@@ -1,21 +1,19 @@
+import { isLoggedIn } from "@/utils/authentication/auth.utils"
 import React, { ComponentType, useEffect, useState } from "react"
-import AuthenticatedWrapper from "../../layouts/AuthenticatedWrapper"
-import LandingPageWrapper from "../../layouts/LandingPageWrapper"
-import NotAuthenticatedWrapper from "../../layouts/NotAuthenticatedWrapper"
-import { init , getWalletConnection} from "../../utils/near/init"
+import AuthenticatedWrapper from "@/layouts/AuthenticatedWrapper"
+import LandingPageWrapper from "@/layouts/LandingPageWrapper"
+import NotAuthenticatedWrapper from "@/layouts/NotAuthenticatedWrapper"
 import NotAuthorized from "./NotAuthorized"
 
 type INeedsAuthentication = "NEEDS_AUTHENTICATION" | "DOES_NOT_NEED_AUTHENTICATION" | "LANDING_PAGE"
 
-export function withNearWallet<P>(Inner : ComponentType<P>, needsAuthentication : INeedsAuthentication) {
+export function getLayout<P>(Inner : ComponentType<P>, needsAuthentication : INeedsAuthentication) {
 
   const Wrapped = (props: P) => {
     const [signedIn, setSignedIn] = useState(false)
     
     useEffect(() => {
-      init().then(() => {
-        setSignedIn(getWalletConnection().isSignedIn())
-      })
+      setSignedIn(isLoggedIn())
     }, [])
     if (needsAuthentication === "LANDING_PAGE"){
       return (
