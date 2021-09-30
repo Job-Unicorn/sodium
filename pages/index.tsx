@@ -1,9 +1,9 @@
-import SEO from '../components/general/SEO'
-import Hero from '../components/landing/Hero'
-import PreFooter from '../components/landing/PreFooter'
-import { withNearWallet } from '../components/near/withNearWallet'
-import GridWrapper from '../layouts/GridWrapper'
-import Features from '../components/landing/Features'
+import SEO from '@/components/general/SEO'
+import Hero from '@/components/landing/Hero'
+import PreFooter from '@/components/landing/PreFooter'
+import GridWrapper from '@/layouts/GridWrapper'
+import Features from '@/components/landing/Features'
+import { getLayout } from '@/components/general/getLayout'
 
 
 function Home() {
@@ -28,6 +28,6 @@ function Home() {
   )
 }
 
-const Page = withNearWallet(Home, "LANDING_PAGE")
+const Page = getLayout(Home, "LANDING_PAGE")
 
 export default Page

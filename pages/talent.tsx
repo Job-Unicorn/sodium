@@ -1,8 +1,8 @@
 import React from 'react'
-import SEO from '../components/general/SEO'
-import { withNearWallet } from '../components/near/withNearWallet'
-import Talent from '../components/talent/Talent'
-import GridWrapper from '../layouts/GridWrapper'
+import SEO from '@/components/general/SEO'
+import Talent from '@/components/talent/Talent'
+import GridWrapper from '@/layouts/GridWrapper'
+import { getLayout } from '@/components/general/getLayout'
 
 const talent = () => {
   return (
@@ -22,6 +22,6 @@ const talent = () => {
   )
 }
 
-const Page = withNearWallet(talent, "DOES_NOT_NEED_AUTHENTICATION")
+const Page = getLayout(talent, "DOES_NOT_NEED_AUTHENTICATION")
 
 export default Page
