@@ -1,12 +1,11 @@
-import React, { ComponentType, useContext, useEffect, useState } from "react"
-import AuthenticatedWrapper from "@/layouts/AuthenticatedWrapper"
-import LandingPageWrapper from "@/layouts/LandingPageWrapper"
-import NotAuthenticatedWrapper from "@/layouts/NotAuthenticatedWrapper"
-import NotAuthorized from "./NotAuthorized"
-import { AuthContext } from "@/store/contexts/AuthContext"
-import { login } from "@/utils/authentication/auth.utils"
+import React, { ComponentType, useContext, useEffect, useState } from 'react'
+import LandingPageWrapper from '@/layouts/LandingPageWrapper'
+import NotAuthorized from './NotAuthorized'
+import { AuthContext } from '@/store/contexts/AuthContext'
+import { login } from '@/utils/authentication/auth.utils'
+import DefaultWrapper from '@/layouts/DefaultWrapper'
 
-type INeedsAuthentication = "NEEDS_AUTHENTICATION" | "DOES_NOT_NEED_AUTHENTICATION" | "LANDING_PAGE"
+type INeedsAuthentication = 'NEEDS_AUTHENTICATION' | 'DOES_NOT_NEED_AUTHENTICATION' | 'LANDING_PAGE'
 
 export function getLayout<P>(Inner : ComponentType<P>, needsAuthentication : INeedsAuthentication) {
 
@@ -20,9 +19,10 @@ export function getLayout<P>(Inner : ComponentType<P>, needsAuthentication : INe
 
     useEffect(() => {
       if (window.ethereum){
-        login().then(({accountId,name}) => {
+        login().then(({ accountId, name}) => {
+          
           authDispatch({ 
-            type: "LOGIN",
+            type: 'LOGIN',
             payload: {
               user : {
                 accountId,
@@ -32,9 +32,9 @@ export function getLayout<P>(Inner : ComponentType<P>, needsAuthentication : INe
           })
         })
       }
-    }, [])
+    }, [authDispatch])
 
-    if (needsAuthentication === "LANDING_PAGE"){
+    if (needsAuthentication === 'LANDING_PAGE'){
       return (
         <LandingPageWrapper>
           <Inner {...props} />
@@ -44,33 +44,33 @@ export function getLayout<P>(Inner : ComponentType<P>, needsAuthentication : INe
 
     } else if (signedIn) {
       return (
-        <AuthenticatedWrapper >
+        <DefaultWrapper >
           <Inner {...props}/>
-        </AuthenticatedWrapper>
+        </DefaultWrapper>
       )
     } else if (
       signedIn == false &&
       needsAuthentication === 
-      "DOES_NOT_NEED_AUTHENTICATION") {
+      'DOES_NOT_NEED_AUTHENTICATION') {
       return (
-        <NotAuthenticatedWrapper>
+        <DefaultWrapper>
           <Inner {...props}/>
-        </NotAuthenticatedWrapper>
+        </DefaultWrapper>
       )
     } else if (
       signedIn == false &&
       needsAuthentication === 
-      "NEEDS_AUTHENTICATION") {
+      'NEEDS_AUTHENTICATION') {
       return (
-        <NotAuthenticatedWrapper>
+        <DefaultWrapper>
           <NotAuthorized />
-        </NotAuthenticatedWrapper>
+        </DefaultWrapper>
       )
     } else {
       return (
-        <NotAuthenticatedWrapper>
+        <DefaultWrapper>
           <NotAuthorized />
-        </NotAuthenticatedWrapper>
+        </DefaultWrapper>
       )
     }
 

@@ -1,21 +1,15 @@
 import React from 'react'
 import {
-  Link as ChakraLink,
   Box,
   Flex,
-  Text,
-  Button,
-  Stack,
   Grid,
   GridItem,
 } from '@chakra-ui/react'
-import Link from 'next/link'
 import { Logo } from '@/components/general/Logo'
-import { useRouter } from 'next/router'
-import ToggleTheme from '@/components/general/navbar/ToggleTheme'
+import MenuLinks from '@/components/general/navbar/MenuLinks'
 
 
-const LandingNavBar = (props) => {
+const Navbar = (props) => {
   const [isOpen, setIsOpen] = React.useState(false)
 
   const toggle = () => setIsOpen(!isOpen)
@@ -59,56 +53,6 @@ const MenuToggle = ({ toggle, isOpen }) => {
   )
 }
 
-const MenuItem = ({ children, link, ...rest }) => {
-  return (
-    <ChakraLink>
-      <Link href={link} passHref={true} >
-        <Text 
-          color="black" display="block" {...rest}>
-          {children}
-        </Text>
-      </Link>
-    </ChakraLink>
-  )
-}
-
-const MenuLinks = ({ isOpen }) => {
-  const router = useRouter()
-  return (
-    <Box
-      display={{ base: isOpen ? 'block' : 'none', md: 'block' }}
-      flexBasis={{ base: '100%', md: 'auto' }}
-    >
-      <Stack
-        spacing={[2, 6]}
-        align="center"
-        justify={['center', 'space-between', 'flex-end', 'flex-end']}
-        direction={['column', 'row', 'row', 'row']}
-        // bg="white"
-        color="black"
-        py={[4, 4, 0, 0]}
-      >
-        <MenuItem link="https://docs.jobunicorn.tech/">Docs</MenuItem>
-        <MenuItem link="https://jobunicorn.hashnode.dev/">Blog</MenuItem>
-        <MenuItem link="https://github.com/Job-Unicorn">Code</MenuItem>
-        <ToggleTheme/>
-        <Button
-          size="sm"
-          colorScheme="blue"
-          bg="blue.400"
-          onClick={(e) => {
-            e.preventDefault()
-            router.push('/jobs')
-          }}
-        >
-          <Text>Launch App</Text>
-        </Button>
-
-      </Stack>
-    </Box>
-  )
-}
-
 const NavBarContainer = ({ children, ...props }) => {
   return (
     <Grid
@@ -116,9 +60,7 @@ const NavBarContainer = ({ children, ...props }) => {
       position={['absolute', 'unset']}
       w="100%"
       zIndex="100"
-      // bg="white"
-      color="black"
-      // shadow="md"
+      shadow="md"
       templateColumns={['repeat(3, 1fr)', 'repeat(5, 1fr)']}
     >
       <GridItem colSpan={[0, 1]} />
@@ -130,8 +72,6 @@ const NavBarContainer = ({ children, ...props }) => {
           wrap="wrap"
           align="center"
           justify="space-between"
-          // bg="white"
-          color="black"
           minH={['7vh', '7vh']}
 
           {...props}
@@ -144,4 +84,4 @@ const NavBarContainer = ({ children, ...props }) => {
   )
 }
 
-export default LandingNavBar
+export default Navbar

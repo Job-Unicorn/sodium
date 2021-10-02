@@ -9,6 +9,8 @@ import { FaMoon, FaSun } from 'react-icons/fa'
  * 
  * ---
  * 
+ * Usage:
+ * 
  * ```ts
  * import ToggleTheme from '@/components/general/ToggleTheme'
  * 
@@ -23,7 +25,7 @@ const ToggleTheme = () => {
 
   return (
     <Button onClick={toggleColorMode} variant="ghost">
-      {colorMode === "light" ? <FaMoon/> : <FaSun />}
+      {colorMode === 'light' ? <FaMoon/> : <FaSun />}
     </Button>
   )
 }

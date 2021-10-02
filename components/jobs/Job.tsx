@@ -24,7 +24,7 @@ const Job = ({job} : {job : IJob}) => {
         </Box>
         <Spacer />
         {/* Modal Opener Button */}
-        <Button onClick={onOpen} variant="ghost" _hover={{ backgroundColor: "none" }} _active={{ backgroundColor: "none"}}>
+        <Button onClick={onOpen} variant="ghost" _hover={{ backgroundColor: 'none' }} _active={{ backgroundColor: 'none'}}>
           <ChevronRightIcon w={6} h={6} />
         </Button>
       </Flex>

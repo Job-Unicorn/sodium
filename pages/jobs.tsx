@@ -53,7 +53,7 @@ const JobsPage = () => {
     
     <JobsProvider>
       
-      <SEO title={"Find the best jobs."} />
+      <SEO title={'Find the best jobs.'} />
 
       <Box  py="8" borderBottomColor="gray.200" borderBottomWidth="thin">
         <GridWrapper columns={3} >
@@ -89,6 +89,6 @@ const JobsPage = () => {
   )
 }
 
-const Page = getLayout(JobsPage, "DOES_NOT_NEED_AUTHENTICATION")
+const Page = getLayout(JobsPage, 'DOES_NOT_NEED_AUTHENTICATION')
 
 export default Page

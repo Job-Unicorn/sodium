@@ -6,10 +6,10 @@ import ChatProvider from '@/store/providers/ChatProvider'
 import ChatHeader from '@/components/chat/ChatHeader'
 import OtherPersonChat from '@/components/chat/OtherPersonChat'
 import PersonalChat from '@/components/chat/PersonalChat'
-import { useForm } from "react-hook-form"
+import { useForm } from 'react-hook-form'
 
 const ChatBody = () => {
-  const user = "Aarush"
+  const user = 'Aarush'
   const {
     register,
     // eslint-disable-next-line no-unused-vars
@@ -47,7 +47,7 @@ const ChatBody = () => {
 
 
             <InputGroup>
-              <Textarea size="sm" fontSize="md" resize="both" placeholder="Type your message over here..." {...register("message", { required: true })} />
+              <Textarea size="sm" fontSize="md" resize="both" placeholder="Type your message over here..." {...register('message', { required: true })} />
               <InputRightElement width="4.5rem">
                 <Button color="blue.500" mt="3.5rem" mr="4" type="submit" >Send</Button>
               </InputRightElement>

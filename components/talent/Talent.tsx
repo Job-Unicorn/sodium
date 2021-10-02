@@ -22,7 +22,7 @@ const Talent = () => {
           <Text color="gray.600" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, porro!</Text>
         </Box>
         <Spacer />
-        <Button onClick={onOpen} variant="ghost" _hover={{ backgroundColor: "none" }} _active={{ backgroundColor: "none" }}>
+        <Button onClick={onOpen} variant="ghost" _hover={{ backgroundColor: 'none' }} _active={{ backgroundColor: 'none' }}>
           <ChevronRightIcon w={6} h={6} />
         </Button>
       </Flex>

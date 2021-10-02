@@ -19,7 +19,7 @@ async function client({
   let ethereum = window.ethereum
 
   if (!ethereum) return {
-    error: "No ethereum wallet detected"
+    error: 'No ethereum wallet detected'
   }
 
   if (!ceramicClient) {
@@ -85,7 +85,7 @@ async function readOnlyClient({
   let ethereum = window.ethereum
 
   if (!ethereum) return {
-    error: "No ethereum wallet detected"
+    error: 'No ethereum wallet detected'
   }
 
   if (!ceramicClient) {
@@ -120,7 +120,7 @@ const networks = {
  */
 
 const caip10Links = {
-  ethereum: "@eip155:1",
+  ethereum: '@eip155:1',
   bitcoin: '@bip122:000000000019d6689c085ae165831e93',
   cosmos: '@cosmos:cosmoshub-3',
   kusama: '@polkadot:b0a8d493285c2df73290dfb7e61f870f'
@@ -138,7 +138,7 @@ async function getRecord({
   let record
 
   if (!ethereum) return {
-    error: "No ethereum wallet detected"
+    error: 'No ethereum wallet detected'
   }
 
   if (!ceramicClient) {

@@ -1,10 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useColorModeValue, chakra } from "@chakra-ui/react"
-import React from "react"
-import { Box, SimpleGrid } from "@chakra-ui/layout"
-import { Button} from "@chakra-ui/react"
-import { Image } from "@chakra-ui/image"
-import { useRouter } from "next/router"
+import { useColorModeValue, chakra } from '@chakra-ui/react'
+import React from 'react'
+import { Box, SimpleGrid } from '@chakra-ui/layout'
+import { Button} from '@chakra-ui/react'
+import { Image } from '@chakra-ui/image'
+import { useRouter } from 'next/router'
 
 function Features() {
   
@@ -15,7 +15,7 @@ function Features() {
       <SimpleGrid
         alignItems="start"
         columns={{ base: 1, md: 2 }}
-        padding={{base: 10, md: "none"}}
+        padding={{base: 10, md: 'none'}}
         my={{base : 0, md: 44}}
         spacingY={{ base: 10, md: 32 }}
         spacingX={{ base: 10, md: 24 }}
@@ -23,12 +23,12 @@ function Features() {
         <Box>
           <chakra.h2
             mb={4}
-            fontSize={{ base: "2xl", md: "4xl" }}
+            fontSize={{ base: '2xl', md: '4xl' }}
             fontWeight="extrabold"
             // letterSpacing="tight"
-            textAlign={{ base: "center", md: "left" }}
-            color={useColorModeValue("gray.900", "gray.400")}
-            lineHeight={{ md: "shorter" }}
+            textAlign={{ base: 'center', md: 'left' }}
+            color={useColorModeValue('gray.900', 'gray.400')}
+            lineHeight={{ md: 'shorter' }}
             // textShadow="2px 0 currentcolor"
           >
               World's first Blockchain-based Job Platform 
@@ -36,9 +36,9 @@ function Features() {
           </chakra.h2>
           <chakra.p
             mb={5}
-            textAlign={{ base: "center", sm: "left" }}
-            color={useColorModeValue("gray.600", "gray.400")}
-            fontSize={{ md: "lg" }}
+            textAlign={{ base: 'center', sm: 'left' }}
+            color={useColorModeValue('gray.600', 'gray.400')}
+            fontSize={{ md: 'lg' }}
           >
               Job Unicorn is the world's first and only job marketplace
               based on the NEAR-chain. This helps you establish trustful
@@ -46,15 +46,15 @@ function Features() {
               payments easier.
           </chakra.p>
           <Button
-            w={{ base: "full", sm: "auto" }}
+            w={{ base: 'full', sm: 'auto' }}
             size="lg"
-            bg={useColorModeValue("gray.900", "gray.700")}
-            _hover={{ bg: useColorModeValue("gray.700", "gray.600") }}
-            color={useColorModeValue("gray.100", "gray.200")}
+            bg={useColorModeValue('gray.900', 'gray.700')}
+            _hover={{ bg: useColorModeValue('gray.700', 'gray.600') }}
+            color={useColorModeValue('gray.100', 'gray.200')}
             as="a"
             onClick={(e) => {
               e.preventDefault()
-              router.push("https://docs.jobunicorn.tech")
+              router.push('https://docs.jobunicorn.tech')
             }}
               
           >
@@ -75,28 +75,28 @@ function Features() {
         alignItems="center"
         columns={{ base: 1, md: 2 }}
         flexDirection="column-reverse"
-        padding={{base: 10, md: "none"}}
+        padding={{base: 10, md: 'none'}}
         mb={24}
         spacingY={{ base: 10, md: 32 }}
         spacingX={{ base: 10, md: 24 }}
       >
-        <Box order={{ base: "unset", md: 2 }}>
+        <Box order={{ base: 'unset', md: 2 }}>
           <chakra.h2
             mb={4}
-            fontSize={{ base: "2xl", md: "4xl" }}
+            fontSize={{ base: '2xl', md: '4xl' }}
             fontWeight="extrabold"
             letterSpacing="tight"
-            textAlign={{ base: "center", md: "left" }}
-            color={useColorModeValue("gray.900", "gray.400")}
-            lineHeight={{ md: "shorter" }}
+            textAlign={{ base: 'center', md: 'left' }}
+            color={useColorModeValue('gray.900', 'gray.400')}
+            lineHeight={{ md: 'shorter' }}
           >
             Large Pool of Specialized Talent
           </chakra.h2>
           <chakra.p
             mb={5}
-            textAlign={{ base: "center", sm: "left" }}
-            color={useColorModeValue("gray.600", "gray.400")}
-            fontSize={{ md: "lg" }}
+            textAlign={{ base: 'center', sm: 'left' }}
+            color={useColorModeValue('gray.600', 'gray.400')}
+            fontSize={{ md: 'lg' }}
           >
               We can help you find the best people for your
               organisation across a wide spectrum of fields
@@ -104,15 +104,15 @@ function Features() {
               at all. Your search ends at Job Unicorn.
           </chakra.p>
           <Button
-            w={{ base: "full", sm: "auto" }}
+            w={{ base: 'full', sm: 'auto' }}
             size="lg"
-            bg={useColorModeValue("gray.900", "gray.700")}
-            _hover={{ bg: useColorModeValue("gray.700", "gray.600") }}
-            color={useColorModeValue("gray.100", "gray.200")}
+            bg={useColorModeValue('gray.900', 'gray.700')}
+            _hover={{ bg: useColorModeValue('gray.700', 'gray.600') }}
+            color={useColorModeValue('gray.100', 'gray.200')}
             as="a"
             onClick={(e) => {
               e.preventDefault()
-              router.push("https://docs.jobunicorn.tech")
+              router.push('https://docs.jobunicorn.tech')
             }}
           >
               Learn More
