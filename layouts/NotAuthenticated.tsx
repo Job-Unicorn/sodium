@@ -15,6 +15,7 @@ import { Logo } from "@/components/general/Logo"
 import { AuthContext } from "@/store/contexts/AuthContext"
 import { login } from "@/utils/authentication/auth.utils"
 import { WALLET_NOT_FOUND } from "@/utils/errors/auth.errors"
+import ToggleTheme from "@/components/general/ToggleTheme"
 
 
 const NotAuthenticatedNavBar = (props) => {
@@ -96,7 +97,7 @@ const MenuLinks = ({ isOpen }) => {
       >
         <MenuItem link="/talent">Hire Talent</MenuItem>
         <MenuItem link="/jobs">Get Hired </MenuItem>
-        
+        <ToggleTheme />
         <Button
           size="sm"
           color="white"
@@ -170,7 +171,6 @@ const NavBarContainer = ({ children, ...props }) => {
           bg="white"
           color="black"
           minH={["7vh", "7vh"]}
-
           {...props}
         >
           {children}

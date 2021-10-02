@@ -12,6 +12,7 @@ import {
 import Link from "next/link"
 import { Logo } from "@/components/general/Logo"
 import { useRouter } from 'next/router'
+import ToggleTheme from "@/components/general/ToggleTheme"
 
 
 const LandingNavBar = (props) => {
@@ -90,7 +91,7 @@ const MenuLinks = ({ isOpen }) => {
         <MenuItem link="https://docs.jobunicorn.tech/">Docs</MenuItem>
         <MenuItem link="https://jobunicorn.hashnode.dev/">Blog</MenuItem>
         <MenuItem link="https://github.com/Job-Unicorn">Code</MenuItem>
-        
+        <ToggleTheme/>
         <Button
           size="sm"
           colorScheme="blue"

@@ -21,6 +21,7 @@ import Link from "next/link"
 import { Logo } from "@/components/general/Logo"
 import { AuthContext } from "@/store/contexts/AuthContext"
 import { logout } from "@/utils/authentication/auth.utils"
+import ToggleTheme from "@/components/general/ToggleTheme"
 
 export const UserPopover = ({ name }) => {
   const { authDispatch } = useContext(AuthContext)
@@ -137,6 +138,8 @@ const MenuLinks = ({ isOpen }) => {
       >
         
         <MenuItem link="/jobs"> Jobs </MenuItem>
+
+        <ToggleTheme />
 
         <>
           <UserPopover name={authState.user.name} />
