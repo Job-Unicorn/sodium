@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import {
   Link as ChakraLink,
   Box,
@@ -19,9 +19,11 @@ import {
 } from "@chakra-ui/react"
 import Link from "next/link"
 import { Logo } from "@/components/general/Logo"
+import { AuthContext } from "@/store/contexts/AuthContext"
 import { logout } from "@/utils/authentication/auth.utils"
 
 export const UserPopover = ({ name }) => {
+  const { authDispatch } = useContext(AuthContext)
   return (
 
     <Popover >
@@ -43,7 +45,10 @@ export const UserPopover = ({ name }) => {
             borderRadius="none"
             bg="blue.400"
             mt="4"
-            onClick={() => logout()}
+            onClick={() => {
+              logout().then(() => {authDispatch({ type: "LOGOUT" })})
+              window.location.reload()
+            }}
           >
             <Text>Sign Out</Text>
           </Button>
@@ -114,6 +119,8 @@ const MenuItem = ({ children, link, ...rest }) => {
 
 const MenuLinks = ({ isOpen }) => {
 
+  const { authState } = useContext(AuthContext)
+
   return (
     <Box
       display={{ base: isOpen ? "block" : "none", md: "block" }}
@@ -130,14 +137,10 @@ const MenuLinks = ({ isOpen }) => {
       >
         
         <MenuItem link="/jobs"> Jobs </MenuItem>
-        
-        
+
         <>
-
-          <UserPopover name={"someone"} />
+          <UserPopover name={authState.user.name} />
         </>
-     
-
 
       </Stack>
     </Box>

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import {
   Link as ChakraLink,
   Box,
@@ -8,10 +8,13 @@ import {
   Stack,
   Grid,
   GridItem,
+  useToast
 } from "@chakra-ui/react"
 import Link from "next/link"
 import { Logo } from "@/components/general/Logo"
+import { AuthContext } from "@/store/contexts/AuthContext"
 import { login } from "@/utils/authentication/auth.utils"
+import { WALLET_NOT_FOUND } from "@/utils/errors/auth.errors"
 
 
 const NotAuthenticatedNavBar = (props) => {
@@ -73,6 +76,10 @@ const MenuItem = ({ children, link, ...rest }) => {
 
 const MenuLinks = ({ isOpen }) => {
 
+  const { authDispatch } = useContext(AuthContext)
+  const toast = useToast()
+
+
   return (
     <Box
       display={{ base: isOpen ? "block" : "none", md: "block" }}
@@ -94,7 +101,41 @@ const MenuLinks = ({ isOpen }) => {
           size="sm"
           color="white"
           bg="blue.400"
-          onClick={() => login()}
+          onClick={() => {
+            login()
+              .then(({accountId,name}) => {
+                authDispatch({ 
+                  type: "LOGIN",
+                  payload: {
+                    user : {
+                      accountId,
+                      name
+                    }
+                  }
+                })
+              })
+              .catch((error) => {
+
+                if (error.message === WALLET_NOT_FOUND) {
+                  toast({
+                    title: "Wallet not found",
+                    description: "Please create a wallet",
+                    status: "error",
+                    duration: 5000,
+                    isClosable: true
+                  })
+                } else {
+                  toast({
+                    title: "Error",
+                    description: error.message,
+                    status: "error",
+                    duration: 5000,
+                    isClosable: true
+                  })
+                }
+              })
+          }
+          }
         >
           <Text>Sign In</Text>
         </Button>
@@ -116,6 +157,7 @@ const NavBarContainer = ({ children, ...props }) => {
       shadow="md"
       templateColumns={["repeat(3, 1fr)", "repeat(5, 1fr)"]}
     >
+
       <GridItem colSpan={[0, 1]} />
 
 
@@ -134,7 +176,9 @@ const NavBarContainer = ({ children, ...props }) => {
           {children}
         </Flex>
       </GridItem>
+      
       <GridItem colSpan={[0, 1]} />
+
     </Grid>
   )
 }

@@ -70,6 +70,7 @@ const JobsPage = () => {
         </GridWrapper>
       </Box>
 
+
       <GridWrapper columns={3} >
 
         {jobs.map((job, index) => (
