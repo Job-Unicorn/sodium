@@ -32,7 +32,7 @@ export function getLayout<P>(Inner : ComponentType<P>, needsAuthentication : INe
           })
         })
       }
-    }, [authDispatch])
+    }, [])
 
     if (needsAuthentication === 'LANDING_PAGE'){
       return (

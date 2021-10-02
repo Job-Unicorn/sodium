@@ -63,8 +63,7 @@ const MenuItem = ({ children, link, ...rest }) => {
   return (
     <ChakraLink>
       <Link href={link} passHref={true} >
-        <Text 
-          color="black" display="block" {...rest}>
+        <Text display="block" {...rest}>
           {children}
         </Text>
       </Link>
@@ -84,8 +83,6 @@ const MenuLinks = ({ isOpen }) => {
         align="center"
         justify={['center', 'space-between', 'flex-end', 'flex-end']}
         direction={['column', 'row', 'row', 'row']}
-        // bg="white"
-        color="black"
         py={[4, 4, 0, 0]}
       >
         <MenuItem link="https://docs.jobunicorn.tech/">Docs</MenuItem>
@@ -116,9 +113,6 @@ const NavBarContainer = ({ children, ...props }) => {
       position={['absolute', 'unset']}
       w="100%"
       zIndex="100"
-      // bg="white"
-      color="black"
-      // shadow="md"
       templateColumns={['repeat(3, 1fr)', 'repeat(5, 1fr)']}
     >
       <GridItem colSpan={[0, 1]} />
@@ -130,8 +124,6 @@ const NavBarContainer = ({ children, ...props }) => {
           wrap="wrap"
           align="center"
           justify="space-between"
-          // bg="white"
-          color="black"
           minH={['7vh', '7vh']}
 
           {...props}

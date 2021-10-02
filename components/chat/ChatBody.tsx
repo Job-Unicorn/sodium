@@ -1,5 +1,5 @@
-import { Flex, Button, Spacer, Textarea, InputGroup, InputRightElement, } from '@chakra-ui/react'
 import React from 'react'
+import { useColorModeValue, Flex, Button, Spacer, Textarea, InputGroup, InputRightElement, } from '@chakra-ui/react'
 import { useContext } from 'react'
 import { ChatContext } from '@/store/contexts/ChatContext'
 import ChatProvider from '@/store/providers/ChatProvider'
@@ -18,12 +18,12 @@ const ChatBody = () => {
     formState: { errors },
   } = useForm()
   // eslint-disable-next-line no-unused-vars
-  const { chatState, chatDispatch } = useContext(ChatContext)
+  const { chatState } = useContext(ChatContext)
 
   return (
     <ChatProvider>
 
-      <Flex borderColor="gray.300" shadow="sm" h="85vh" borderWidth="thin" p="4" my="10" overflow="hidden" rounded="md" flexDir="column">
+      <Flex borderColor={useColorModeValue('gray.300', 'whiteAlpha.300')} shadow="sm" h="85vh" borderWidth="thin" p="4" my="10" overflow="hidden" rounded="md" flexDir="column">
 
         <ChatHeader />
 

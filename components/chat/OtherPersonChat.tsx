@@ -1,10 +1,10 @@
-import { Flex, Box, Text, Spacer } from '@chakra-ui/react'
 import React from 'react'
+import { useColorModeValue, Flex, Box, Text, Spacer } from '@chakra-ui/react'
 
 const OtherPersonChat = ({ chat }) => {
   return (
     <Flex>
-      <Box p="4" mb="4" w="96" borderColor="gray.300" shadow="sm" borderWidth="thin" rounded="lg" >
+      <Box p="4" mb="4" w="96" borderColor={useColorModeValue('gray.300', 'whiteAlpha.300')} shadow="sm" borderWidth="thin" rounded="lg" >
         <Flex flexDir="column">
           <Text>{chat.message}</Text>
           <Flex>

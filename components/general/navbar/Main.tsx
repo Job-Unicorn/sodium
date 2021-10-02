@@ -1,5 +1,6 @@
 import React from 'react'
 import {
+  useColorModeValue,
   Box,
   Flex,
   Grid,
@@ -60,7 +61,7 @@ const NavBarContainer = ({ children, ...props }) => {
       position={['absolute', 'unset']}
       w="100%"
       zIndex="100"
-      shadow="md"
+      shadow={useColorModeValue('md', 'none')}
       templateColumns={['repeat(3, 1fr)', 'repeat(5, 1fr)']}
     >
       <GridItem colSpan={[0, 1]} />
