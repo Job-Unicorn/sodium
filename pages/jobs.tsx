@@ -11,6 +11,7 @@ import { Input } from '@chakra-ui/input'
 import JobsProvider from '@/store/providers/JobsProvider'
 import SEO from '@/components/general/SEO'
 import { getLayout } from '@/components/general/getLayout'
+import { useColorModeValue } from '@chakra-ui/color-mode'
 const Job = dynamic(() => import('@/components/jobs/Job'))
 const NoResultsFound = dynamic(() => import('@/components/jobs/NoResultsFound'))
 
@@ -53,9 +54,9 @@ const JobsPage = () => {
     
     <JobsProvider>
       
-      <SEO title={"Find the best jobs."} />
+      <SEO title={'Find the best jobs.'} />
 
-      <Box  py="8" borderBottomColor="gray.200" borderBottomWidth="thin">
+      <Box  py="8" borderBottomColor={useColorModeValue('gray.200', 'whiteAlpha.200')} borderBottomWidth="thin">
         <GridWrapper columns={3} >
           <Input placeholder="Search" onChange={e => {
 
@@ -69,6 +70,7 @@ const JobsPage = () => {
           }} size={'lg'} />
         </GridWrapper>
       </Box>
+
 
       <GridWrapper columns={3} >
 
@@ -88,6 +90,6 @@ const JobsPage = () => {
   )
 }
 
-const Page = getLayout(JobsPage, "DOES_NOT_NEED_AUTHENTICATION")
+const Page = getLayout(JobsPage, 'DOES_NOT_NEED_AUTHENTICATION')
 
 export default Page

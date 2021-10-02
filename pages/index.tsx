@@ -10,7 +10,7 @@ function Home() {
   return (
     <>
 
-      <SEO title={"The Best Job Search Tool on the Web."}/>
+      <SEO title={'The Best Job Search Tool on the Web.'}/>
 
       
 
@@ -28,6 +28,6 @@ function Home() {
   )
 }
 
-const Page = getLayout(Home, "LANDING_PAGE")
+const Page = getLayout(Home, 'LANDING_PAGE')
 
 export default Page

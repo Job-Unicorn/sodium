@@ -3,7 +3,7 @@ import React from 'react'
 
 const SemiFlex = ({ inverted }) => {
   return (
-    <Flex minH="100vh" flexDir={inverted === true ? "row-reverse" : "row"} py="20%">
+    <Flex minH="100vh" flexDir={inverted === true ? 'row-reverse' : 'row'} py="20%">
 
       <>
         <Image src="https://www.turing.com/_next/image?url=%2Fimg%2Fpic-skills-mobile.png&w=1920&q=75" alt="" fit="cover"  w="50%" />

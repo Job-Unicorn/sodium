@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react'
 import {
   chakra,
   Box,
@@ -7,7 +7,7 @@ import {
   useColorModeValue,
   Link,
   Button
-} from "@chakra-ui/react"
+} from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 
 
@@ -29,30 +29,30 @@ export default function PreFooter() {
         w="full"
       >
         <Box
-          w={{ base: "full", md: "75%", lg: "50%" }}
+          w={{ base: 'full', md: '75%', lg: '50%' }}
           px={4}
           py={20}
-          textAlign={{ base: "left", md: "center" }}
+          textAlign={{ base: 'left', md: 'center' }}
         >
           <chakra.span
-            fontSize={{ base: "3xl", sm: "4xl" }}
+            fontSize={{ base: '3xl', sm: '4xl' }}
             fontWeight="extrabold"
             letterSpacing="tight"
             lineHeight="shorter"
-            color={useColorModeValue("gray.900", "gray.100")}
+            color={useColorModeValue('gray.900', 'gray.100')}
             mb={6}
           >
             <chakra.span display="block">Ready to dive in?</chakra.span>
             <chakra.span
               display="block"
-              color={useColorModeValue("brand.900", "gray.500")}
+              color={useColorModeValue('brand.900', 'gray.500')}
             >
               Apply to your dream job today.
             </chakra.span>
           </chakra.span>
           <Stack
-            justifyContent={{ base: "left", md: "center" }}
-            direction={{ base: "column", sm: "row" }}
+            justifyContent={{ base: 'left', md: 'center' }}
+            direction={{ base: 'column', sm: 'row' }}
             spacing={10}
             mt={10}
           >
@@ -68,12 +68,12 @@ export default function PreFooter() {
                 border="solid transparent"
                 fontWeight="bold"
                 rounded="md"
-                colorScheme={useColorModeValue("blue","blue")}
+                colorScheme={useColorModeValue('blue','blue')}
                 color="white"
                 bg="blue.400"
                 onClick={(e) => {
                   e.preventDefault()
-                  router.push("/jobs")
+                  router.push('/jobs')
                 }}
               >
                 Get started
@@ -94,7 +94,7 @@ export default function PreFooter() {
                 bg="white"
                 onClick={(e) => {
                   e.preventDefault()
-                  router.push("https://docs.jobunicorn.tech")
+                  router.push('https://docs.jobunicorn.tech')
                 }}
               >
                 Learn more

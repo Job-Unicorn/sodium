@@ -1,4 +1,4 @@
-import { ButtonGroup, ButtonGroupProps, IconButton } from '@chakra-ui/react'
+import { useColorModeValue, ButtonGroup, ButtonGroupProps, IconButton } from '@chakra-ui/react'
 import * as React from 'react'
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
 import { Box, Flex, Link, Stack, Text, TextProps } from '@chakra-ui/layout'
@@ -15,7 +15,7 @@ export const Logo = (props) => {
     <Box {...props}>
       <Link as={Flex} href="/" align="center">
         <Image alt="logo" src="/logo.svg" w="12" />
-        <Text fontSize="2xl" ml="4" cursor="pointer" fontWeight="bold" color="#000F30" >
+        <Text fontSize="2xl" ml="4" cursor="pointer" fontWeight="bold" color={useColorModeValue('#000F30', 'white')} >
                     Job Unicorn
         </Text>
       </Link>
