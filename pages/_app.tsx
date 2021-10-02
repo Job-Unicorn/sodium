@@ -1,11 +1,14 @@
 /* eslint-disable @next/next/inline-script-id */
 import { ChakraProvider } from '@chakra-ui/react'
-import { theme } from '@/config/theme'
+import { theme } from '@/config/theme.config'
 import Script from 'next/script'
 import '@/styles/globals.css'
-import { GOOGLE_ANALYTICS_ID } from '@/config/analytics'
+import { GOOGLE_ANALYTICS_ID } from '@/config/analytics.config'
+import AuthProvider from '@/store/providers/AuthProvider'
+
 
 function MyApp({ Component, pageProps }) {
+
   return (
     <>
       {/* ANALYTICS */}
@@ -19,10 +22,12 @@ function MyApp({ Component, pageProps }) {
         gtag('config', '${GOOGLE_ANALYTICS_ID}');
       `}
       </Script>
-
-      <ChakraProvider theme={theme}>
-        <Component {...pageProps} />
-      </ChakraProvider>
+      <AuthProvider>
+        <ChakraProvider theme={theme}>
+          <Component {...pageProps} />
+        </ChakraProvider>
+      </AuthProvider>
+    
     </>
   )
 }

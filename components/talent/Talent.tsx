@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Flex, Heading, Image, Modal, ModalBody, ModalContent, ModalOverlay, Spacer, Tag, TagLabel, Text, useDisclosure } from '@chakra-ui/react'
+import { useColorModeValue, Box, Button, Divider, Flex, Heading, Image, Modal, ModalBody, ModalContent, ModalOverlay, Spacer, Tag, TagLabel, Text, useDisclosure } from '@chakra-ui/react'
 import React from 'react'
 import { FaUserTie } from 'react-icons/fa'
 import { IoIosDoneAll } from 'react-icons/io'
@@ -11,25 +11,25 @@ const Talent = () => {
   const finalRef = React.useRef()
 
   return (
-    <Box borderColor="gray.300" shadow="sm" borderWidth="thin" p="4" my="10" overflow="hidden" rounded="md">
+    <Box borderColor={useColorModeValue('gray.300', 'whiteAlpha.300')} shadow="sm" borderWidth="thin" p="4" my="10" overflow="hidden" rounded="md">
 
       <Flex>
 
-        <Image rounded="lg" src="https://media-exp1.licdn.com/dms/image/C4E03AQHZdJ_kK6G4YQ/profile-displayphoto-shrink_200_200/0/1624437156870?e=1632960000&v=beta&t=UObUAs-T_aT4l8wgAXDLUDRM3x_NwElh3AJZFX691TU" alt=""  objectFit="contain" w="10" />
+        <Image rounded="lg" src="https://aarush-goyal.github.io/testimonials/aditya.jpg" alt="profile picture"  objectFit="contain" w="10" />
 
         <Box ml="4">
           <Heading fontSize="2xl" >Aditya Agarwal</Heading>
-          <Text color="gray.600" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, porro!</Text>
+          <Text color={useColorModeValue('gray.600', 'whiteAlpha.600')} >Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, porro!</Text>
         </Box>
         <Spacer />
-        <Button onClick={onOpen} variant="ghost" _hover={{ backgroundColor: "none" }} _active={{ backgroundColor: "none" }}>
+        <Button onClick={onOpen} variant="ghost" _hover={{ backgroundColor: 'none' }} _active={{ backgroundColor: 'none' }}>
           <ChevronRightIcon w={6} h={6} />
         </Button>
       </Flex>
-      <Flex ml="14" mt="2" color="gray.500" align="center">
+      <Flex ml="14" mt="2" color={useColorModeValue('gray.500','whiteAlpha.500')} align="center">
         <FaUserTie /> <Text ml="2">Investment Banking </Text>
       </Flex>
-      <Flex ml="14" mt="2" color="gray.500" align="center">
+      <Flex ml="14" mt="2" color={useColorModeValue('gray.500','whiteAlpha.500')} align="center">
         <Tag size="sm" colorScheme="blue" borderRadius="full">
           <AiOutlineRise size="18px" />
           <TagLabel ml="1">Looking for opportunities</TagLabel>
@@ -43,12 +43,12 @@ const Talent = () => {
           <TagLabel>Verified</TagLabel>
         </Tag>
       </Flex>
-      <Flex w="100%" mt="6" flexDir="column" p="6" borderWidth="thin" borderColor="gray.300" rounded="md" >
+      <Flex w="100%" mt="6" flexDir="column" p="6" borderWidth="thin" borderColor={useColorModeValue('gray.300','whiteAlpha.300')} rounded="md" >
         <Flex align="center">
-          <Heading fontSize="lg" color="gray.700">Investment Banking Associate
+          <Heading fontSize="lg" color={useColorModeValue('gray.700','whiteAlpha.800')}>Investment Banking Associate
           </Heading> <Spacer />
           <Text color="green.500" >$ 113K - 120k</Text>
-          <Button size="sm" ml="3" rounded="md" variant="outline" bg="blue.400" color="white" borderRadius="none" >
+          <Button size="sm" ml="3" rounded="md" variant="outline" colorScheme="blue" borderRadius="none" >
             Offer a Job
           </Button>
 
@@ -61,20 +61,20 @@ const Talent = () => {
         <ModalContent maxH="3xl" overflow="hidden" >
           {/* <ModalHeader></ModalHeader>
                     <ModalCloseButton /> */}
-          <ModalBody p="6" >
+          <ModalBody p="6" bg={useColorModeValue('white', 'gray.800')} >
             <Flex>
 
-              <Image src="https://media-exp1.licdn.com/dms/image/C4E03AQHZdJ_kK6G4YQ/profile-displayphoto-shrink_200_200/0/1624437156870?e=1632960000&v=beta&t=UObUAs-T_aT4l8wgAXDLUDRM3x_NwElh3AJZFX691TU" alt="" objectFit="contain" w="10" />
+              <Image src="https://aarush-goyal.github.io/testimonials/aditya.jpg" alt="profile picture" objectFit="contain" w="10" />
               <Box ml="4">
                 <Heading fontSize="2xl" >Aditya Agarwal</Heading>
 
-                <Text color="gray.600" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, porro!</Text>
+                <Text color={useColorModeValue('gray.600', 'whiteAlpha.600')} >Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, porro!</Text>
               </Box>
             </Flex>
-            <Flex ml="14" mt="2" color="gray.500" align="center">
-              <FaUserTie /> <Text ml="2">Employee</Text>
+            <Flex ml="14" mt="2" color={useColorModeValue('gray.500','whiteAlpha.500')} align="center">
+              <FaUserTie /> <Text ml="2">Investment Banking</Text>
             </Flex>
-            <Flex ml="14" mt="2" color="gray.500" align="center">
+            <Flex ml="14" mt="2" color={useColorModeValue('gray.500','whiteAlpha.500')} align="center">
               <Tag size="sm" colorScheme="blue" borderRadius="full">
                 <AiOutlineRise size="18px" />
                 <TagLabel ml="1">High Growth</TagLabel>
@@ -84,27 +84,27 @@ const Talent = () => {
                 <TagLabel>Verified</TagLabel>
               </Tag>
             </Flex>
-            <Flex w="100%" mt="6" flexDir="row" p="6" borderWidth="thin" borderColor="gray.300" rounded="md" >
+            <Flex w="100%" mt="6" flexDir="row" p="6" borderWidth="thin" borderColor={useColorModeValue('gray.300','whiteAlpha.300')} rounded="md" >
 
               {/* ------------------------------------------------------------------------------------------ */}
 
               <Box w="60%" pr="6">
-                <Heading fontSize="2xl" color="gray.700" mb="2" >Lorem ipsum dolor sit amet consectetur adipisicing.</Heading>
+                <Heading fontSize="2xl" color={useColorModeValue('gray.700','whiteAlpha.800')} mb="2" >Lorem ipsum dolor sit amet consectetur adipisicing.</Heading>
                 <Divider />
-                <Text mt="2" color="gray.500" fontSize="sm">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur nulla laboriosam sequi iste veniam assumenda animi, mollitia, in vero, temporibus aliquam minima architecto doloribus voluptates repellendus necessitatibus atque eum quae? Consequatur nulla laboriosam sequi iste veniam assumenda animi, mollitia, in vero, temporibus aliquam minima architecto doloribus voluptates repellendus necessitatibus atque eum quae?</Text>
+                <Text mt="2" color={useColorModeValue('gray.500','whiteAlpha.600')} fontSize="sm">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur nulla laboriosam sequi iste veniam assumenda animi, mollitia, in vero, temporibus aliquam minima architecto doloribus voluptates repellendus necessitatibus atque eum quae? Consequatur nulla laboriosam sequi iste veniam assumenda animi, mollitia, in vero, temporibus aliquam minima architecto doloribus voluptates repellendus necessitatibus atque eum quae?</Text>
               </Box>
 
 
               {/* ------------------------------------------------------------------------------------------ */}
 
-              <Box w="40%" borderColor="gray.300" borderWidth="thin" p="3" rounded="md" >
+              <Box w="40%" borderColor={useColorModeValue('gray.300','whiteAlpha.300')} borderWidth="thin" p="3" rounded="md" >
 
                 <Box mb="3">
-                  <Text fontWeight="black" >Job Type</Text>
+                  <Text fontWeight="black" color={useColorModeValue('gray.700','whiteAlpha.800')} >Job Type</Text>
                   <Text>Full Time</Text>
                 </Box>
                 <Box mb="3">
-                  <Text fontWeight="black" mb="2" >Skills</Text>
+                  <Text fontWeight="black" color={useColorModeValue('gray.700','whiteAlpha.800')} mb="2" >Skills</Text>
                   < >
                     <Tag size="sm" m="1" colorScheme="blue" borderRadius="full">
                       <AiOutlineRise size="18px" />
@@ -129,7 +129,7 @@ const Talent = () => {
                   </>
                 </Box>
                 <Box mb="3">
-                  <Text fontWeight="black" >Experience</Text>
+                  <Text fontWeight="black" color={useColorModeValue('gray.700','whiteAlpha.800')} >Experience</Text>
                   <Text>2+ years</Text>
                 </Box>
 
@@ -140,29 +140,19 @@ const Talent = () => {
               {/* ------------------------------------------------------------------------------------------ */}
 
             </Flex>
-            <Flex w="100%" mt="6" flexDir="column" p="6" borderWidth="thin" borderColor="gray.300" rounded="md" >
+            <Flex w="100%" mt="6" flexDir="column" p="6" borderWidth="thin" borderColor={useColorModeValue('gray.300','whiteAlpha.300')} rounded="md" >
               <Flex align="center">
 
-                <Heading fontSize="lg" color="gray.700">Lorem ipsum dolor sit amet consectetur adipisicing.</Heading> <Spacer />
+                <Heading fontSize="lg" color={useColorModeValue('gray.700','whiteAlpha.800')} >Lorem ipsum dolor sit amet consectetur adipisicing.</Heading> <Spacer />
                 <Text color="green.500" >$ 113K - 120k</Text>
-                <Button size="sm" ml="3" rounded="md" variant="outline" bg="blue.400" color="white" borderRadius="none" >
+                <Button size="sm" ml="3" rounded="md" variant="outline" colorScheme="blue" borderRadius="none" >
                   Offer a Job
                 </Button>
 
               </Flex>
-              {/* <Divider my="4" />
-                            <Flex align="center">
-                                <Heading fontSize="lg" color="gray.700">Lorem ipsum dolor sit amet consectetur adipisicing.</Heading> <Spacer />
-                                <Text color="green.500" >$ 113K - 120k</Text>
-                                <Button size="sm" ml="3" rounded="md" variant="outline" bg="blue.400" color="white" borderRadius="none" >
-                                    Apply
-                                </Button>
-
-                            </Flex> */}
             </Flex>
           </ModalBody>
 
-          {/* <ModalFooter></ModalFooter> */}
         </ModalContent>
       </Modal>
 

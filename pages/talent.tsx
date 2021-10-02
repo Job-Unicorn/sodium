@@ -22,6 +22,6 @@ const talent = () => {
   )
 }
 
-const Page = getLayout(talent, "DOES_NOT_NEED_AUTHENTICATION")
+const Page = getLayout(talent, 'DOES_NOT_NEED_AUTHENTICATION')
 
 export default Page

@@ -1,15 +1,15 @@
-import { Flex, Button, Spacer, Textarea, InputGroup, InputRightElement, } from '@chakra-ui/react'
 import React from 'react'
+import { useColorModeValue, Flex, Button, Spacer, Textarea, InputGroup, InputRightElement, } from '@chakra-ui/react'
 import { useContext } from 'react'
 import { ChatContext } from '@/store/contexts/ChatContext'
 import ChatProvider from '@/store/providers/ChatProvider'
 import ChatHeader from '@/components/chat/ChatHeader'
 import OtherPersonChat from '@/components/chat/OtherPersonChat'
 import PersonalChat from '@/components/chat/PersonalChat'
-import { useForm } from "react-hook-form"
+import { useForm } from 'react-hook-form'
 
 const ChatBody = () => {
-  const user = "Aarush"
+  const user = 'Aarush'
   const {
     register,
     // eslint-disable-next-line no-unused-vars
@@ -18,12 +18,12 @@ const ChatBody = () => {
     formState: { errors },
   } = useForm()
   // eslint-disable-next-line no-unused-vars
-  const { chatState, chatDispatch } = useContext(ChatContext)
+  const { chatState } = useContext(ChatContext)
 
   return (
     <ChatProvider>
 
-      <Flex borderColor="gray.300" shadow="sm" h="85vh" borderWidth="thin" p="4" my="10" overflow="hidden" rounded="md" flexDir="column">
+      <Flex borderColor={useColorModeValue('gray.300', 'whiteAlpha.300')} shadow="sm" h="85vh" borderWidth="thin" p="4" my="10" overflow="hidden" rounded="md" flexDir="column">
 
         <ChatHeader />
 
@@ -47,7 +47,7 @@ const ChatBody = () => {
 
 
             <InputGroup>
-              <Textarea size="sm" fontSize="md" resize="both" placeholder="Type your message over here..." {...register("message", { required: true })} />
+              <Textarea size="sm" fontSize="md" resize="both" placeholder="Type your message over here..." {...register('message', { required: true })} />
               <InputRightElement width="4.5rem">
                 <Button color="blue.500" mt="3.5rem" mr="4" type="submit" >Send</Button>
               </InputRightElement>

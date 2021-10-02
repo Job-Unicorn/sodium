@@ -19,6 +19,6 @@ const Company = () => {
   )
 }
 
-const Page = getLayout(Company, "NEEDS_AUTHENTICATION")
+const Page = getLayout(Company, 'NEEDS_AUTHENTICATION')
 
 export default Page
