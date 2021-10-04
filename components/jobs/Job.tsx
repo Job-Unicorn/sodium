@@ -5,6 +5,35 @@ import { IoIosDoneAll } from 'react-icons/io'
 import { AiOutlineRise } from 'react-icons/ai'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import { IJob } from '@/interfaces/Job'
+import { AuthContext } from '@/store/contexts/AuthContext'
+import { useRouter } from 'next/router'
+
+const ApplyButton = ({jobId, companyId, ...rest }) => {
+
+  const { authState } = React.useContext(AuthContext) 
+  const router = useRouter()
+
+  return (
+    <Button 
+      size="sm"
+      w="fit-content"
+      rounded="md"
+      variant="outline" 
+      colorScheme="blue" 
+      borderRadius="none" 
+      {...rest}
+      onClick={() => {
+        if (authState.isLoggedIn) {
+          router.push(`/${authState.user.accountId.split(':')[2]}/chat/${companyId}/${jobId}`)
+        } else {
+          router.push('/sign-up')
+        }
+      }}
+    >
+      Apply
+    </Button>
+  )
+}
 
 const Job = ({job} : {job : IJob}) => {
 
@@ -16,7 +45,7 @@ const Job = ({job} : {job : IJob}) => {
 
       <Flex>
 
-        <Image src={job.logo} alt="" objectFit="contain" w="10" />
+        <Image src={job.logo} alt="logo" objectFit="contain" w="10" />
         <Box ml="4">
           <Heading fontSize="2xl" >{job.company}</Heading>
           {/* company description */}
@@ -47,10 +76,9 @@ const Job = ({job} : {job : IJob}) => {
       <Flex w="100%" mt="6" flexDir="column" p="6" borderWidth="thin" borderColor={useColorModeValue('gray.300','whiteAlpha.300')} rounded="md" >
         <Flex align="center">
           <Heading fontSize="lg" color={useColorModeValue('gray.700','whiteAlpha.800')}>{job.title}</Heading> <Spacer />
-          <Text color="green.500" >{job.salary} NEAR</Text>
-          <Button size="sm" ml="4" rounded="md" variant="outline" colorScheme="blue" borderRadius="none" >
-            Apply
-          </Button>
+          <Text color="green.500" >{job.salary} Ethereum</Text>
+          
+          <ApplyButton  jobId={job.id} companyId={job.companyId} ml="6"/>
 
         </Flex>
       </Flex>
@@ -100,10 +128,8 @@ const Job = ({job} : {job : IJob}) => {
                 <Text mt="2" color={useColorModeValue('gray.500','whiteAlpha.600')} fontSize="sm">{job.description}</Text>
 
                 <Spacer />
-                    
-                <Button size="md" w="fit-content" rounded="md" variant="outline" colorScheme="blue" borderRadius="none" >
-                  Apply
-                </Button>
+
+                <ApplyButton jobId={job.id} companyId={job.companyId} />
               </Flex>
 
 
