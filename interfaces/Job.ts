@@ -36,6 +36,7 @@ export interface IJobApplicationService {
     jobType : string
     description : string
     salary : number
+    
 }
 
 export type IJobs = IJob[]

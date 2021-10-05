@@ -2,7 +2,9 @@ import { client, getRecord } from './identity.utils'
 import { WALLET_NOT_FOUND } from '../errors/auth.errors'
 
 /**
- * ### Login using IDX and ethereum wallet
+ * 
+ * **Login using IDX and ethereum wallet**
+ * 
  */
 
 export const login = async () => {
@@ -14,12 +16,18 @@ export const login = async () => {
     const ceramicClient = await client()
     const data = await (await getRecord()).record
 
-    console.log(data)
+    localStorage.setItem('authentication', JSON.stringify({ 
+      isLoggedIn : true,
+      name: data.name,
+      accountId : ceramicClient.idx.id,
+      data
+    }))
 
     return {
       accountId : ceramicClient.idx.id,
       name : data.name
     }
+
   } else {
     throw new Error(WALLET_NOT_FOUND)
   }
@@ -27,9 +35,23 @@ export const login = async () => {
 
 }
 
+/**
+ * 
+ * **Logout**
+ * 
+ * Removes the authentication from local storage
+ * 
+ */
 
 export const logout = async () => {
 
-  console.log('Logged out using IDX and ethereum wallet')
+  localStorage.setItem('authentication', JSON.stringify({ 
+    isLoggedIn : false,
+    name : null,
+    accountId : null,
+    data : null 
+  }))
+
+  window.location.reload()
 
 }

@@ -1,5 +1,5 @@
-import { IJob, IJobs } from "@/interfaces/Job"
-import { JobActionType } from "@/store/types/Jobs"
+import { IJob, IJobs } from '@/interfaces/Job'
+import { JobActionType } from '@/store/types/Jobs'
 
 
 export interface IJobsAction {
