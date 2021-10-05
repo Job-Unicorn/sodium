@@ -1,3 +1,18 @@
+# [0.4.0](https://github.com/Job-Unicorn/sodium/compare/v0.3.0...v0.4.0) (2021-10-05)
+
+
+### Bug Fixes
+
+* apply button redirect ([c4addcc](https://github.com/Job-Unicorn/sodium/commit/c4addcc4004c63c3f3389942aadedf74a19b8af3))
+* auth flow on reload ([9b11a0d](https://github.com/Job-Unicorn/sodium/commit/9b11a0d7548ca41897ab5eadd84604d29cb10758))
+
+
+### Features
+
+* created sign up form ([f0e4b72](https://github.com/Job-Unicorn/sodium/commit/f0e4b727880d7d3e09fc38327260f9bc8dd29e6f))
+
+
+
 # [0.3.0](https://github.com/Job-Unicorn/sodium/compare/v0.2.0...v0.3.0) (2021-10-02)
 
 
