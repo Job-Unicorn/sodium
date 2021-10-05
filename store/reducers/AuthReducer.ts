@@ -1,5 +1,5 @@
-import { IAuthState, IUser } from "../state/auth"
-import { AuthActionType } from "../types/Auth"
+import { IAuthState, IUser } from '../state/auth'
+import { AuthActionType } from '../types/Auth'
 
 export interface IAuthAction {
     type: AuthActionType
@@ -10,7 +10,7 @@ export interface IAuthAction {
 
 export const AuthReducer = (state: IAuthState, action : IAuthAction) : IAuthState => {
   switch (action.type) {
-  case "LOGIN":
+  case 'LOGIN':
     return {
       ...state,
       isLoggedIn: true,
@@ -18,7 +18,7 @@ export const AuthReducer = (state: IAuthState, action : IAuthAction) : IAuthStat
     }
 
     
-  case "LOGOUT":
+  case 'LOGOUT':
     return {
       ...state,
       isLoggedIn: false,

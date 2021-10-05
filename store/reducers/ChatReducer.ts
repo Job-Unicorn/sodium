@@ -1,13 +1,13 @@
-import { Chat } from "@/store/contexts/ChatContext"
-import { ChatState } from "@/store/state/chat"
-import { ChatActionType } from "@/store/types/Chat"
+import { Chat } from '@/store/contexts/ChatContext'
+import { ChatState } from '@/store/state/chat'
+import { ChatActionType } from '@/store/types/Chat'
 
 export const chatReducer = (
   state: ChatState,
   action: { type: ChatActionType; payload: Chat }
 ) => {
   switch (action.type) {
-  case "ADD_MESSAGE":
+  case 'ADD_MESSAGE':
     return {
       ...state,
       messages: [
