@@ -1,7 +1,7 @@
 <h1 align="center">Job Unicorn</h1>
 
 
-<p align="center"> <a href="https://jobunicorn.tech/">Website</a> | <a href="https://jobunicorn.tech/demo">Demo</a> | <a href="https://jobunicorn.tech/pitch-deck.pdf">Pitch Deck</a> | <a href="https://docs.jobunicorn.tech/">Docs</a> | <a href="https://jobunicorn.hashnode.dev/">Blog</a> </p>
+<p align="center"> <a href="https://jobunicorn.tech/"> 🕸️ Website</a> | <a href="https://jobunicorn.tech/demo"> 📹 Demo</a> | <a href="https://jobunicorn.tech/pitch-deck.pdf"> 🖼️ Pitch Deck</a> | <a href="https://docs.jobunicorn.tech/"> 📄 Docs</a> | <a href="https://jobunicorn.hashnode.dev/"> 📑 Blog</a> | <a href="https://discord.gg/MJaHr8V3Ar"> 👥 Discord</a> </p>
 
 ![image](https://user-images.githubusercontent.com/64161383/133911003-fe4b7f2c-c454-4b13-8f5b-02abbc84310e.png)
 
@@ -12,21 +12,23 @@ To take a look at the deployed application visit [jobunicorn.tech](https://jobun
 
 > We are now [commitizen](https://github.com/commitizen/cz-cli) friendly!
 
-## Contributors
+## Want to contribute?
+    
+We are always looking for new contributors.
 
-<div>
+Checkout our [Contribution Guidelines](CONTRIBUTING.md) and [Code of Conduct](CODE_OF_CONDUCT.md) for more information.
 
-| Name | Contributions |
-|------|-------------------------------------------|
-| Aditya Agarwal | Head of Business Development |
-| Aarush Goyal | Head of Technological Development |
-| Soodit Kumar | Lead Frontend Engineer |
+> Join our [discord community](https://discord.gg/MJaHr8V3Ar) to get started.
 
-![image](https://user-images.githubusercontent.com/64161383/131865229-b3ac129f-8dfb-4e4f-b806-8e9f13ea85f8.png)
 
-</div>
+## Core Team
+
+| Name           | Role                              |
+|----------------|-----------------------------------|
+| Aditya Agarwal | Head of Business Development      |
+| Aarush Goyal   | Head of Technological Development |
+| Soodit Kumar   | Lead Frontend Engineer            |
 
 ---
 
 To know more about the project visit the [documentation](https://job-unicorn.github.io/docs/).
-
