@@ -10,6 +10,8 @@ A decentralized platform for finding and hiring the best talent.
 
 To take a look at the deployed application visit [jobunicorn.tech](https://jobunicorn.tech/).
 
+> We are now [commitizen](https://github.com/commitizen/cz-cli) friendly!
+
 ## Contributors
 
 <div>
