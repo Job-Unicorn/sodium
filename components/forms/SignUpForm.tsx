@@ -13,9 +13,10 @@ import {
   useToast
 } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
+import { useForm } from 'react-hook-form'
 import { useContext, useEffect } from 'react'
 import { AuthContext } from '@/store/contexts/AuthContext'
-import { login } from '@/utils/authentication/auth.utils'
+import { login, signUp } from '@/utils/authentication/auth.utils'
 import { WALLET_NOT_FOUND } from '@/utils/errors/auth.errors'
 
 
@@ -73,6 +74,8 @@ export default function SignUpForm() {
 
   const router = useRouter()
 
+  const { register, handleSubmit, formState : { errors } } = useForm()
+
   const { authState } = useContext(AuthContext)
 
   useEffect(() => {
@@ -81,6 +84,10 @@ export default function SignUpForm() {
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [authState.isLoggedIn])
+
+
+  // TODO: Add validation
+  // TODO: Add error handling
 
   return (
     <Flex
@@ -101,50 +108,68 @@ export default function SignUpForm() {
           boxShadow={'lg'}
           p={8}>
           <Stack spacing={4}>
-            <FormControl id="first-name">
-              <FormLabel>First Name</FormLabel>
-              <Input 
-                type="text"
-                placeholder="John"
-              />
-            </FormControl>
-            <FormControl id="last-name">
-              <FormLabel>Last Name</FormLabel>
-              <Input 
-                type="text"
-                placeholder="Doe"
-              />
-            </FormControl>
-            <FormControl id="email">
-              <FormLabel>Email address</FormLabel>
-              <Input 
-                type="email"
-                placeholder="johndoe@email.com"
-              />
-            </FormControl>
-            <FormControl id="linkedin">
-              <FormLabel>LinkedIn</FormLabel>
-              <Input 
-                type="url"
-                placeholder="https://linkedin.com/in/username"
-              />
-            </FormControl>
-            <FormControl id="resume">
-              <FormLabel>Resume</FormLabel>
-              <Input type="file" py="1" />
-            </FormControl>
-            <Stack spacing={10}>
-              <Button
-                bg={'blue.400'}
-                mt={4}
-                color={'white'}
-                _hover={{
-                  bg: 'blue.500',
-                }}>
+            <form onSubmit={handleSubmit(signUp)}>
+              <FormControl id="name">
+                <FormLabel>Full Name</FormLabel>
+                <Input 
+                  type="text"
+                  mb="4"
+                  placeholder="John Doe"
+                  {...register('name',{
+                    required: true
+                  
+                  })}
+                />
+              </FormControl>
+              <FormControl id="email">
+                <FormLabel>Email address</FormLabel>
+                <Input 
+                  type="email"
+                  mb="4"
+                  placeholder="johndoe@email.com"
+                  {...register('email',{
+                    required: true
+                  
+                  })}
+                />
+              </FormControl>
+              <FormControl id="linkedin">
+                <FormLabel>LinkedIn</FormLabel>
+                <Input 
+                  type="url"
+                  mb="4"
+                  placeholder="https://linkedin.com/in/username"
+                  {...register('linkedin',{
+                    required: true
+                  
+                  })}
+                />
+              </FormControl>
+              <FormControl id="resume">
+                <FormLabel>Resume</FormLabel>
+                <Input 
+                  type="file" 
+                  py="1"
+                  mb="4"
+                  {...register('resume', {
+                    required: true
+                  
+                  } )}
+                />
+              </FormControl>
+              <Stack spacing={10}>
+                <Button
+                  bg={'blue.400'}
+                  type="submit"
+                  mt={4}
+                  color={'white'}
+                  _hover={{
+                    bg: 'blue.500',
+                  }}>
                   Sign Up
-              </Button>
-            </Stack>
-            
+                </Button>
+              </Stack>
+            </form>
           </Stack>
         </Box>
         <Text textAlign="center">

@@ -1,9 +1,11 @@
+import { EthereumAuthProvider, SelfID, WebClient } from '@self.id/web'
 import CeramicClient from '@ceramicnetwork/http-client'
 import ThreeIdResolver from '@ceramicnetwork/3id-did-resolver'
 import { IDX } from '@ceramicstudio/idx'
-import { EthereumAuthProvider, ThreeIdConnect } from '@3id/connect'
+import { ThreeIdConnect } from '@3id/connect'
 import { DID } from 'dids'
 import { CERAMIC_ENDPOINT } from '@/config/ceramic.config'
+import { BASIC_PROFILE_NOT_FOUND, WALLET_NOT_FOUND } from '../errors/auth.errors'
 
 const ceramicProvider =  CeramicClient
 const threeIdProvider = ThreeIdResolver
@@ -77,29 +79,6 @@ async function client({
   }
 }
 
-async function readOnlyClient({
-  endpoint = CERAMIC_ENDPOINT,
-  ceramicClient = null,
-} = {}) {
-  let ceramic
-  let ethereum = window.ethereum
-
-  if (!ethereum) return {
-    error: 'No ethereum wallet detected'
-  }
-
-  if (!ceramicClient) {
-    ceramic = new ceramicProvider(endpoint)
-  } else {
-    ceramic = ceramicClient
-  }
-
-  const idx = new IDX({ ceramic })
-  return {
-    idx, ceramic, error: null
-  }
-}
-
 const networks = {
   ethereum: 'ethereum',
   bitcoin: 'bitcoin',
@@ -107,52 +86,42 @@ const networks = {
   kusama: 'kusama'
 }
 
-/** 
- * 
- * **CAIP-10 Account IDs** is a blockchain agnostic way to describe
- * an account on any blockchain.This may be an externally owned
- * key-pair account, or a smart contract account. IDX uses CAIP-10s
- * as a way to lookup the DID of a user using a caip10-link 
- * streamType in Ceramic. 
- * 
- * Learn more in the Ceramic documentation.
- * 
- */
-
-const caip10Links = {
-  ethereum: '@eip155:1',
-  bitcoin: '@bip122:000000000019d6689c085ae165831e93',
-  cosmos: '@cosmos:cosmoshub-3',
-  kusama: '@polkadot:b0a8d493285c2df73290dfb7e61f870f'
-}
-
 
 async function getRecord({
   endpoint = CERAMIC_ENDPOINT,
   network = 'ethereum',
-  ceramicClient = null,
   schema = 'basicProfile'
 } = {}) {
-  let ceramic
   let ethereum = window.ethereum
   let record
 
   if (!ethereum) return {
-    error: 'No ethereum wallet detected'
-  }
-
-  if (!ceramicClient) {
-    ceramic = new ceramicProvider(endpoint)
-  } else {
-    ceramic = ceramicClient
+    error: WALLET_NOT_FOUND
   }
 
   if (network === networks.ethereum) {
     const addresses = await ethereum.request({ method: 'eth_requestAccounts' })
     const address = addresses[0]
-    const idx = new IDX({ ceramic })
-    const data = await idx.get(schema, `${address}${caip10Links.ethereum}`)
+    
+    // ----------------------------------------------------------------------------------------
+
+    const authProvider = new EthereumAuthProvider(ethereum, address)
+    const client = new WebClient({ ceramic: endpoint, connectNetwork: 'testnet-clay' })
+    const did = await client.authenticate(authProvider)
+    const self = new SelfID({ client, did })
+
+    const data = await self.get(schema)
+
+    // ----------------------------------------------------------------------------------------
+
     record = data
+
+    if (!record) {
+      return {
+        error: BASIC_PROFILE_NOT_FOUND
+      }
+    }
+
   }
   return {
     record, error: null
@@ -161,6 +130,5 @@ async function getRecord({
 
 export {
   getRecord,
-  readOnlyClient,
   client
 }
