@@ -2,7 +2,6 @@ import ipfs from 'ipfs-http-client'
 import { client, getRecord } from '@/utils/authentication/identity.utils'
 import { WALLET_NOT_FOUND } from '@/utils/errors/auth.errors'
 import axios from 'axios'
-import { IPFS_INFURA_AUTH_TOKEN } from '@/config/ceramic.config'
 
 /**
  * 
