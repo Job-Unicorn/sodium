@@ -1,3 +1,22 @@
+# [1.0.0](https://github.com/Job-Unicorn/sodium/compare/v0.4.0...v1.0.0) (2021-10-14)
+
+
+### Bug Fixes
+
+* **authentication:** removed unused dependencies ([764cd3d](https://github.com/Job-Unicorn/sodium/commit/764cd3d55d4330c433c37c80f46d5eba18c40007))
+
+
+### Features
+
+* **authentication:** uploading resumes to ipfs infura ([a1f2df9](https://github.com/Job-Unicorn/sodium/commit/a1f2df94d4205d8a684f1fd1b3d0a49b6603eae5))
+
+
+### BREAKING CHANGES
+
+* **authentication:** the sign up form does not have full functionality
+
+
+
 # [0.4.0](https://github.com/Job-Unicorn/sodium/compare/v0.3.0...v0.4.0) (2021-10-05)
 
 
