@@ -1,9 +1,18 @@
-import { client, getRecord } from './identity.utils'
-import { WALLET_NOT_FOUND } from '../errors/auth.errors'
+import ipfs from 'ipfs-http-client'
+import { client, getRecord } from '@/utils/authentication/identity.utils'
+import { WALLET_NOT_FOUND } from '@/utils/errors/auth.errors'
+import axios from 'axios'
 
 /**
  * 
  * **Login using IDX and ethereum wallet**
+ * 
+ * - Connects to eth wallet like  metamask
+ * - Gets user details from ceramic
+ * - Saves user data in local storage
+ * 
+ * Potential errors:
+ * - Wallet not found
  * 
  */
 
@@ -39,7 +48,9 @@ export const login = async () => {
  * 
  * **Logout**
  * 
- * Removes the authentication from local storage
+ * - Removes the authentication from local\
+ * storage
+ * - Reloads the page
  * 
  */
 
@@ -53,5 +64,73 @@ export const logout = async () => {
   }))
 
   window.location.reload()
+
+}
+
+/**
+ * 
+ * **Creates the account for new users**
+ * 
+ * - It takes the name, email, linkedin url\
+ * and the resume as a FileList
+ * - Upload the resume to IPFS
+ * - Sets them in the ceramic schema
+ * 
+ */
+
+export const signUp = async (
+  data : {
+    name : string,
+    email: string,
+    linkedin : string ,
+    resume : FileList
+  }
+) => {
+
+  try {
+
+
+    /**
+     *  Get the ipfs auth token from the api
+     */
+    const ipfsAuthToken = (await axios.get('/api/get-ipfs-token').then(res => res.data) as string)
+
+    // ------------------------------------------------------------
+
+    const ipfsClient = ipfs.create({
+      host: 'ipfs.infura.io',
+      port: 5001,
+      protocol: 'https',
+      headers: {
+        authorization: ipfsAuthToken
+      }
+    })
+
+    const added = await ipfsClient.add(data.resume[0])
+    const url = `https://ipfs.infura.io/ipfs/${added.path}`
+
+    const dataToStore = {
+      name : data.name,
+      email : data.email,
+      linkedin : data.linkedin,
+      resume : url
+    }
+
+    console.log('dataToStore', dataToStore)
+
+    // ------------------------------------------------------------
+
+    return {
+      message : 'success',
+      error : null
+    }
+
+  } catch (error) {
+    console.log('error', error)
+    return {
+      message : 'failure',
+      error : error.message
+    }
+  }
 
 }

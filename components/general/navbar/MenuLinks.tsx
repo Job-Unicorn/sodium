@@ -4,8 +4,9 @@ import { AuthContext } from '@/store/contexts/AuthContext'
 import {Link, Button, Box, Stack, Text, useToast } from '@chakra-ui/react'
 import ToggleTheme from '@/components/general/navbar/ToggleTheme'
 import { UserPopover } from '@/components/general/navbar/UserPopover'
-import { WALLET_NOT_FOUND } from '@/utils/errors/auth.errors'
+import { BASIC_PROFILE_NOT_FOUND, WALLET_NOT_FOUND } from '@/utils/errors/auth.errors'
 import { login } from '@/utils/authentication/auth.utils'
+import { useRouter } from 'next/router'
 
 
 
@@ -13,6 +14,7 @@ const MenuLinks = ({ isOpen }) => {
 
   const { authState, authDispatch } = useContext(AuthContext)
   const toast = useToast()
+  const router = useRouter()
   
   return (
     <Box
@@ -59,7 +61,6 @@ const MenuLinks = ({ isOpen }) => {
                   })
                 })
                 .catch((error) => {
-
                   if (error.message === WALLET_NOT_FOUND) {
                     toast({
                       title: 'Wallet not found',
@@ -68,6 +69,8 @@ const MenuLinks = ({ isOpen }) => {
                       duration: 5000,
                       isClosable: true
                     })
+                  } else if (error.message = BASIC_PROFILE_NOT_FOUND) {
+                    router.push('/sign-up')
                   } else {
                     toast({
                       title: 'Error',
