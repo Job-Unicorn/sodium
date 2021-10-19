@@ -1,3 +1,13 @@
+## [1.0.1](https://github.com/Job-Unicorn/sodium/compare/v1.0.0...v1.0.1) (2021-10-19)
+
+
+### Bug Fixes
+
+* **analytics:** changed config for ga tracking id ([9bbe5f5](https://github.com/Job-Unicorn/sodium/commit/9bbe5f56cfbf4e865e0bd7e20bd2593b31bd47e7))
+* **auth:** local storage returning null for new users ([b16c527](https://github.com/Job-Unicorn/sodium/commit/b16c5271f1c264400b27635717a122ce3093baba))
+
+
+
 # [1.0.0](https://github.com/Job-Unicorn/sodium/compare/v0.4.0...v1.0.0) (2021-10-14)
 
 

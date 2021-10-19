@@ -25,11 +25,9 @@ function Features() {
             mb={4}
             fontSize={{ base: '2xl', md: '4xl' }}
             fontWeight="extrabold"
-            // letterSpacing="tight"
             textAlign={{ base: 'center', md: 'left' }}
             color={useColorModeValue('gray.900', 'gray.400')}
             lineHeight={{ md: 'shorter' }}
-            // textShadow="2px 0 currentcolor"
           >
               World's first Blockchain-based Job Platform 
 
@@ -54,7 +52,7 @@ function Features() {
             as="a"
             onClick={(e) => {
               e.preventDefault()
-              router.push('https://docs.jobunicorn.tech')
+              router.push('https://docs.jobunicorn.io')
             }}
               
           >
@@ -68,7 +66,6 @@ function Features() {
           w="full"
           h="full"
           rounded="md"
-          // py={48}
         />
       </SimpleGrid>
       <SimpleGrid
@@ -112,15 +109,12 @@ function Features() {
             as="a"
             onClick={(e) => {
               e.preventDefault()
-              router.push('https://docs.jobunicorn.tech')
+              router.push('https://docs.jobunicorn.io')
             }}
           >
               Learn More
           </Button>
         </Box>
-        {/* <Box
-          
-        ></Box> */}
         <Image 
           src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80"
           objectFit="contain"
