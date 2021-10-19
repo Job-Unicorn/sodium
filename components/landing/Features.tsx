@@ -54,7 +54,7 @@ function Features() {
             as="a"
             onClick={(e) => {
               e.preventDefault()
-              router.push('https://docs.jobunicorn.tech')
+              router.push('https://docs.jobunicorn.io')
             }}
               
           >
@@ -112,7 +112,7 @@ function Features() {
             as="a"
             onClick={(e) => {
               e.preventDefault()
-              router.push('https://docs.jobunicorn.tech')
+              router.push('https://docs.jobunicorn.io')
             }}
           >
               Learn More

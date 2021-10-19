@@ -34,17 +34,17 @@ const SEO = ({title} : {title : string}) => {
 
 
       <meta property="og:type" content="website"/>
-      <meta property="og:url" content="https://jobunicorn.tech/"/>
+      <meta property="og:url" content="https://jobunicorn.io/"/>
       <meta property="og:title" content={'Job Unicorn — ' + (title ? title : 'The Best Job Search Tool on the Web.')}/>
       <meta property="og:description" content="Are you looking for a job? We've partnered with some of the best employers in the world to help you find the perfect job. Job Unicorn is the best place to find your next position."/>
-      <meta property="og:image" content="https://jobunicorn.tech/banner.png"/>
+      <meta property="og:image" content="https://jobunicorn.io/banner.png"/>
 
 
       <meta property="twitter:card" content="summary_large_image"/>
-      <meta property="twitter:url" content="https://jobunicorn.tech/"/>
+      <meta property="twitter:url" content="https://jobunicorn.io/"/>
       <meta property="twitter:title" content={'Job Unicorn — ' + (title ? title : 'The Best Job Search Tool on the Web.')}/>
       <meta property="twitter:description" content="Are you looking for a job? We've partnered with some of the best employers in the world to help you find the perfect job. Job Unicorn is the best place to find your next position."/>
-      <meta property="twitter:image" content="https://jobunicorn.tech/banner.png"></meta>
+      <meta property="twitter:image" content="https://jobunicorn.io/banner.png"></meta>
     </Head>
   )
 }

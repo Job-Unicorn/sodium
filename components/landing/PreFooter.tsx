@@ -94,7 +94,7 @@ export default function PreFooter() {
                 bg="white"
                 onClick={(e) => {
                   e.preventDefault()
-                  router.push('https://docs.jobunicorn.tech')
+                  router.push('https://docs.jobunicorn.io')
                 }}
               >
                 Learn more
