@@ -1,3 +1,12 @@
+## [1.0.2](https://github.com/Job-Unicorn/sodium/compare/v1.0.1...v1.0.2) (2021-10-19)
+
+
+### Bug Fixes
+
+* **domain-name:** changed domain to jobunicorn.tech to jobunicorn.io ([7b82c36](https://github.com/Job-Unicorn/sodium/commit/7b82c363a0eaf8ebaa9e6fc952bbf84cd30551cf))
+
+
+
 ## [1.0.1](https://github.com/Job-Unicorn/sodium/compare/v1.0.0...v1.0.1) (2021-10-19)
 
 
@@ -54,20 +63,6 @@
 
 * added authentication flow using ceramic ([d779430](https://github.com/Job-Unicorn/sodium/commit/d7794303186a55335ff83f5da14420ec01872315))
 * toggle theme button ([effdf96](https://github.com/Job-Unicorn/sodium/commit/effdf96667bbcd9503340d911df5b234bd7ef8f6))
-
-
-
-# [0.2.0](https://github.com/Job-Unicorn/sodium/compare/9662282d4b1ac8efca1064ccf6f60ad3b58ece5d...v0.2.0) (2021-09-30)
-
-
-### Bug Fixes
-
-* del .vscode ([9662282](https://github.com/Job-Unicorn/sodium/commit/9662282d4b1ac8efca1064ccf6f60ad3b58ece5d))
-
-
-### Features
-
-* added commitlint for linting the commit messages ([0649218](https://github.com/Job-Unicorn/sodium/commit/0649218ed87f2b006dbbe49d3df9e76beb57571d))
 
 
 
