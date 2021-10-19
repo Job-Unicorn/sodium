@@ -74,7 +74,7 @@ export default function SignUpForm() {
 
   const router = useRouter()
 
-  const { register, handleSubmit, formState : { errors } } = useForm()
+  const { register, handleSubmit } = useForm()
 
   const { authState } = useContext(AuthContext)
 
