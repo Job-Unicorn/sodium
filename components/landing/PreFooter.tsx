@@ -17,15 +17,12 @@ export default function PreFooter() {
 
   return (
     <Flex
-      // bg={useColorModeValue("#F9FAFB", "gray.600")}
-      // p={50}
       w="full"
       alignItems="center"
       justifyContent="center"
     >
       <Flex
         justify="center"
-        // bg={useColorModeValue("white", "gray.800")}
         w="full"
       >
         <Box
@@ -94,7 +91,7 @@ export default function PreFooter() {
                 bg="white"
                 onClick={(e) => {
                   e.preventDefault()
-                  router.push('https://docs.jobunicorn.tech')
+                  router.push('https://docs.jobunicorn.io')
                 }}
               >
                 Learn more

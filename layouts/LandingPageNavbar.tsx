@@ -85,7 +85,7 @@ const MenuLinks = ({ isOpen }) => {
         direction={['column', 'row', 'row', 'row']}
         py={[4, 4, 0, 0]}
       >
-        <MenuItem link="https://docs.jobunicorn.tech/">Docs</MenuItem>
+        <MenuItem link="https://docs.jobunicorn.io/">Docs</MenuItem>
         <MenuItem link="https://jobunicorn.hashnode.dev/">Blog</MenuItem>
         <MenuItem link="https://github.com/Job-Unicorn">Code</MenuItem>
         <ToggleTheme/>

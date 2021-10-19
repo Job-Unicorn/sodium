@@ -21,7 +21,6 @@ export const login = async () => {
   console.log('Logging in using IDX and ethereum wallet')
 
   if (window.ethereum) {
-    // const provider = new ethers.providers.Web3Provider(window.ethereum)
     const ceramicClient = await client()
     const data = await (await getRecord()).record
 
