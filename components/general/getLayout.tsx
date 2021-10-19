@@ -17,22 +17,24 @@ export function getLayout<P>(Inner : ComponentType<P>, needsAuthentication : INe
     }, [authState.isLoggedIn])
 
     useEffect(() => {
+      if (JSON.parse(localStorage.getItem('authentication')) !== null) {
+        if ( JSON.parse(localStorage.getItem('authentication')).isLoggedIn === true && JSON.parse(localStorage.getItem('authentication')).isLoggedIn !== null) {
 
-      if ( JSON.parse(localStorage.getItem('authentication')).isLoggedIn ) {
-
-        authDispatch({ 
-          type: 'LOGIN',
-          payload: {
-            user : {
-              accountId : JSON.parse(localStorage.getItem('authentication')).accountId,
-              name : JSON.parse(localStorage.getItem('authentication')).name
+          authDispatch({ 
+            type: 'LOGIN',
+            payload: {
+              user : {
+                accountId : JSON.parse(localStorage.getItem('authentication')).accountId,
+                name : JSON.parse(localStorage.getItem('authentication')).name
+              }
             }
-          }
     
-        })
+          })
 
+        }
       }
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     if (needsAuthentication === 'LANDING_PAGE'){
