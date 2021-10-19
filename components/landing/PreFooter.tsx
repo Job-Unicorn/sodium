@@ -17,15 +17,12 @@ export default function PreFooter() {
 
   return (
     <Flex
-      // bg={useColorModeValue("#F9FAFB", "gray.600")}
-      // p={50}
       w="full"
       alignItems="center"
       justifyContent="center"
     >
       <Flex
         justify="center"
-        // bg={useColorModeValue("white", "gray.800")}
         w="full"
       >
         <Box
